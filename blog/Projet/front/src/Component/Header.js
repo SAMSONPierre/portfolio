@@ -1,4 +1,8 @@
+import { useSelector } from "react-redux";
+
 const Header = () => {
+  const { idUser } = useSelector((state) => state);
+
   return (
     <header class="blog-header">
       <div>
@@ -9,7 +13,11 @@ const Header = () => {
           <a href="/">
             <i class="fa fa-home"></i>Home
           </a>
-          {locals.isAdmin ? (
+          {idUser == null || idUser == undefined ? (
+            <a href="/login">
+              <i class="fa fa-cogs"></i> Se connecter
+            </a>
+          ) : (
             <div>
               <a href="/admin">
                 <i class="fa fa-cogs"></i> Administration
@@ -18,12 +26,6 @@ const Header = () => {
                 <i class="fa fa-user"></i> Se déconnecter
               </a>
             </div>
-          ) : (
-            <a>
-              <a href="/login">
-                <i class="fa fa-cogs"></i> Se connecter
-              </a>
-            </a>
           )}
         </nav>
       </div>
