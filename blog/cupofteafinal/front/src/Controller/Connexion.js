@@ -1,92 +1,93 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 
+const Connexion = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
+  //useNavigate permettra d'effectuer une redirection
+  const navigate = useNavigate();
 
-const Connexion = ()  => {
+  //useDispatch permettra d'appeler une action du reducer afin d'écrire dans le styate global
+  const dispatch = useDispatch();
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [message, setMessage] = useState("");
+  //useSelector permet de lire dans le state global
+  const { teas } = useSelector((state) => state);
 
-    //useNavigate permettra d'effectuer une redirection
-    const navigate = useNavigate();
+  const changeEmail = (e) => {
+    setEmail(e.target.value);
+  };
 
-    //useDispatch permettra d'appeler une action du reducer afin d'écrire dans le styate global
-    const dispatch = useDispatch();
+  const changePassword = (e) => {
+    setPassword(e.target.value);
+  };
 
-    //useSelector permet de lire dans le state global
-    const {teas} = useSelector(state => state);
+  const submit = () => {
+    //envoi des données en POST
+    let datas = {
+      email: email,
+      password: password,
+    };
 
-    const changeEmail = (e) => {
-        setEmail(e.target.value);
-    }
+    let req = new Request("/api/connexion", {
+      method: "POST",
+      body: JSON.stringify(datas),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
 
-    const changePassword = (e) => {
-        setPassword(e.target.value);
-    }
-
-    const submit = () => {
-        //envoi des données en POST
-        let datas = {
-            email:email,
-            password:password
+    fetch(req)
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.reponse) {
+          dispatch({
+            type: "CONNECT_USER",
+            id: response.id,
+          });
+          setMessage("");
+          //redirection
+          if (teas.length > 0) {
+            navigate("/cart");
+          } else {
+            navigate("/");
+          }
+        } else {
+          setMessage(response.message);
         }
+      });
+  };
 
-        let req = new Request("/api/connexion", {
-            method:'POST',
-            body:JSON.stringify(datas),
-            headers : {
-                'Accept' : 'application/json',
-                'Content-Type' : 'application/json',
-            }
-        })
-
-        fetch(req)
-        .then(response => response.json())
-        .then(response => {
-            if(response.reponse){
-                dispatch({
-                    type: 'CONNECT_USER',
-                    id: response.id
-                })
-                setMessage("");
-                //redirection
-                if(teas.length > 0){
-                    navigate("/cart");
-                }
-                else{
-                    navigate("/");
-                }
-            }
-            else{
-                setMessage(response.message)
-            }           
-        })
-
-    }
-
-    return(
-        <>
-            <h1>Connexion</h1>
-            <p style={{ color:'red' }}>{message}</p>
-            <form>
-                <div>
-                    <label htmlFor="email">Votre email</label>
-                    <input type="email" id="email" value={email} onChange={changeEmail} />
-                </div>
-                <div>
-                    <label htmlFor="password">Votre mot de passe</label>
-                    <input type="password" id="password" value={password} onChange={changePassword}/>
-                </div>
-                <button className="btn" type="button" onClick={submit}>Se connecter</button>
-            </form>
-            <p>
-                <a href="/createAccount">Je n'ai pas encore de compte</a>
-            </p>
-        </>
-    )
-}
+  return (
+    <>
+      <h1>Connexion</h1>
+      <p style={{ color: "red" }}>{message}</p>
+      <form>
+        <div>
+          <label htmlFor="email">Votre email</label>
+          <input type="email" id="email" value={email} onChange={changeEmail} />
+        </div>
+        <div>
+          <label htmlFor="password">Votre mot de passe</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={changePassword}
+          />
+        </div>
+        <button className="btn" type="button" onClick={submit}>
+          Se connecter
+        </button>
+      </form>
+      <p>
+        <a href="/createAccount">Je n'ai pas encore de compte</a>
+      </p>
+    </>
+  );
+};
 
 export default Connexion;

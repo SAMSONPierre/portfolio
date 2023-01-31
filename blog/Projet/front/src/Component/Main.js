@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 const Main = () => {
-  const [liste, setListe] = useState([]);
+  // const [liste, setListe] = useState([]);
 
   return (
     <>
@@ -11,4 +11,4 @@ const Main = () => {
   );
 };
 
-export default <Main />;
+export default Main;

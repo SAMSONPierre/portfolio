@@ -1,19 +1,22 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 const Header = () => {
-  const { idUser } = useSelector((state) => state);
+  // const { idUser } = useSelector((state) => state);
 
   return (
-    <header class="blog-header">
+    <header className="blog-header">
       <div>
         <h1>
           <a href="/">Pierre Samson</a>
         </h1>
         <nav>
           <a href="/">
-            <i class="fa fa-home"></i>Home
+            <i className="fa fa-home"></i>Home
           </a>
-          {idUser === null || idUser === undefined ? (
+          <a href="/login">
+            <i className="fa fa-cogs"></i> Se connecter
+          </a>
+          {/* {idUser === null || idUser === undefined ? (
             <a href="/login">
               <i class="fa fa-cogs"></i> Se connecter
             </a>
@@ -26,11 +29,11 @@ const Header = () => {
                 <i class="fa fa-user"></i> Se déconnecter
               </a>
             </div>
-          )}
+          )} */}
         </nav>
       </div>
     </header>
   );
 };
 
-export default <Header />;
+export default Header;
