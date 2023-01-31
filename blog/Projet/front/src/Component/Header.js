@@ -13,7 +13,7 @@ const Header = () => {
           <a href="/">
             <i class="fa fa-home"></i>Home
           </a>
-          {idUser == null || idUser == undefined ? (
+          {idUser === null || idUser === undefined ? (
             <a href="/login">
               <i class="fa fa-cogs"></i> Se connecter
             </a>
