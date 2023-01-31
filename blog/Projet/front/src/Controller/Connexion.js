@@ -6,8 +6,8 @@ const Connexion = () => {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  //   //useDispatch permettra d'appeler une action du reducer afin d'écrire dans le styate global
-  //   const dispatch = useDispatch();
+  //useDispatch permettra d'appeler une action du reducer afin d'écrire dans le styate global
+  const dispatch = useDispatch();
 
   const changeEmail = (e) => {
     setEmail(e.target.value);
@@ -17,42 +17,42 @@ const Connexion = () => {
     setPassword(e.target.value);
   };
 
-  //   const submit = () => {
-  //     //envoi des données en POST
-  //     let datas = {
-  //       email: email,
-  //       password: password,
-  //     };
+  const submit = () => {
+    //envoi des données en POST
+    let datas = {
+      email: email,
+      password: password,
+    };
 
-  //     let req = new Request("/api/login", {
-  //       method: "POST",
-  //       body: JSON.stringify(datas),
-  //       headers: {
-  //         Accept: "application/json",
-  //         "Content-Type": "application/json",
-  //       },
-  //     });
+    let req = new Request("/login", {
+      method: "POST",
+      body: JSON.stringify(datas),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    });
 
-  //     fetch(req)
-  //       .then((response) => response.json())
-  //       .then((response) => {
-  //         if (response.reponse) {
-  //           dispatch({
-  //             type: "CONNECT_USER",
-  //             id: response.id,
-  //           });
-  //           setMessage("");
-  //           //redirection
-  //         } else {
-  //           setMessage(response.message);
-  //         }
-  //       });
-  //   };
+    fetch(req)
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.reponse) {
+          dispatch({
+            type: "CONNECT_USER",
+            id: response.id,
+          });
+          setMessage("");
+          //redirection
+        } else {
+          setMessage(response.message);
+        }
+      });
+  };
 
   return (
     <>
       <h1>Connexion</h1>
-      <p style={{ color: "red" }}></p>
+      <p style={{ color: "red" }}>{message}</p>
       <form>
         <div>
           <label htmlFor="email">Votre email</label>
@@ -67,7 +67,7 @@ const Connexion = () => {
             onChange={changePassword}
           />
         </div>
-        <button className="btn" type="button">
+        <button className="btn" type="button" onClick={submit}>
           Se connecter
         </button>
       </form>

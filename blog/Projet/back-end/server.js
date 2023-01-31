@@ -52,7 +52,7 @@ app.use((req, res, next) => {
 });
 
 //appel du routeur
-app.use("/api", router);
+app.use("/", router);
 
 // lancement du serveur sur un port choisi
 
