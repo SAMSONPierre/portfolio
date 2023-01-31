@@ -1,4 +1,4 @@
-import { CONNECT_USER, DECONNECT_USER } from "../Constants/actions";
+import { CONNECT_USER, DECONNECT_USER } from "../Constants/action.js";
 
 let stateInit;
 const reducer = (state = stateInit, action = {}) => {
