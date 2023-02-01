@@ -1,14 +1,14 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "description": "Le super blog de la 3wa",
+  "description": "Le portfolio de Pierre Samson",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Bocar COLY",
+  "author": "Miramont Thomas",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
