@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 
 const Header = () => {
-  const { idUser } = useSelector((state) => state);
-
+  const idUser  = useSelector((state) => state);
+  
   return (
     <header className="blog-header">
       <div>
@@ -13,20 +13,17 @@ const Header = () => {
           <a href="/">
             <i className="fa fa-home"></i>Home
           </a>
-          <a href="/login">
-            <i className="fa fa-cogs"></i> Se connecter
-          </a>
           {idUser === null || idUser === undefined ? (
             <a href="/login">
-              <i class="fa fa-cogs"></i> Se connecter
+              <i className="fa fa-cogs"></i> Se connecter
             </a>
           ) : (
             <div>
               <a href="/admin">
-                <i class="fa fa-cogs"></i> Administration
+                <i className="fa fa-cogs"></i> Administration
               </a>
               <a href="/logout">
-                <i class="fa fa-user"></i> Se déconnecter
+                <i className="fa fa-user"></i> Se déconnecter
               </a>
             </div>
           )} 
