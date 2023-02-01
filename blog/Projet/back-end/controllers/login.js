@@ -15,7 +15,7 @@ export const LoginSubmit = (req, res) => {
         }
         // Sinon on affiche un message
         else {
-          return res.status(404).json({ message: "mot de passe incorect" });
+          return res.status(404).json({ message: "identifiant incorect" });
         }
       });
     }

@@ -37,6 +37,7 @@ const Connexion = () => {
       .then((response) => response.json())
       .then((response) => {
         if (response.reponse) {
+          console.log(response.id);
           dispatch({
             type: "CONNECT_USER",
             id: response.id,
