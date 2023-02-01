@@ -5,6 +5,7 @@ export const LoginSubmit = (req, res) => {
   // On va vérifier si l'utilisateur avec cet email existe en BDD ou pas
   User.findOne({ email: req.body.email }, (err, admin) => {
     console.log(req.body.email);
+    console.log(req.body.pwd);
     // Si il existe
     if (admin) {
       bcrypt.compare(req.body.pwd, admin.password, (err, result) => {

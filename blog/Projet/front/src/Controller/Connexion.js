@@ -21,7 +21,7 @@ const Connexion = () => {
     //envoi des données en POST
     let datas = {
       email: email,
-      password: password,
+      pwd: password,
     };
 
     let req = new Request("/login", {
@@ -42,7 +42,7 @@ const Connexion = () => {
             type: "CONNECT_USER",
             id: response.id,
           });
-          setMessage("");
+          setMessage(response.message);
           //redirection
         } else {
           setMessage(response.message);
