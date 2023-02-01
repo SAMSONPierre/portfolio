@@ -46,14 +46,14 @@ let UserSchema = mongoose.Schema({
   pseudo: String,
 });
 
-let User = mongoose.model("User", UserSchema);
-bcrypt.hash("merci", 1, (err, result) => {
-  let admin = new User({
-    email: "admin@admin.fr",
-    password: result,
-    pseudo: "toto",
-  });
-  admin.save();
-});
+// let User = mongoose.model("User", UserSchema);
+// bcrypt.hash("merci", 1, (err, result) => {
+//   let admin = new User({
+//     email: "admin@admin.fr",
+//     password: result,
+//     pseudo: "toto",
+//   });
+//   admin.save();
+// });
 
 export { Article, User };
