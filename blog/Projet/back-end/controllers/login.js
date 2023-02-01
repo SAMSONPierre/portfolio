@@ -4,27 +4,20 @@ import bcrypt from "bcrypt";
 export const LoginSubmit = (req, res) => {
   // On va vérifier si l'utilisateur avec cet email existe en BDD ou pas
   User.findOne({ email: req.body.email }, (err, admin) => {
-    console.log(admin);
+    console.log(req.body.email);
     // Si il existe
     if (admin) {
       bcrypt.compare(req.body.pwd, admin.password, (err, result) => {
         // Si le mot de passe est correct alors on créé la session et on redirige l'utilisateur vers le BO
         if (result) {
           req.session.isAdmin = true;
-          res.redirect("/admin");
+          return res.status(200).json({ message: "mot de passe corect" });
         }
         // Sinon on affiche un message
         else {
-          res.render("layout", {
-            template: "login",
-            message: "Mauvais mot de passe",
-          });
+          return res.status(404).json({ message: "mot de passe incorect" });
         }
       });
-    }
-    // Si l'utilisateur n'existe pas
-    else {
-      res.render("layout", { template: "login", message: "Email inconnu" });
     }
   });
 };
