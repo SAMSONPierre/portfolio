@@ -23,7 +23,7 @@ export const LoginSubmit = (req, res) => {
 };
 
 export const Logout = (req, res) => {
-  req.session.destroy((err) => {
-    res.redirect("/");
-  });
+  console.log(req.session);
+  req.session.destroy();
+  return res.status(200).json({ message: "Déconnecté" });
 };
