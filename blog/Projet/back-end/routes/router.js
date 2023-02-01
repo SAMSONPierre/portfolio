@@ -8,15 +8,11 @@ import { AddComment, Details } from "../controllers/details.js";
 import {
   AddPost,
   AddPostSubmit,
-  Admin,
   DeletePost,
   EditPost,
   EditPostSubmit,
 } from "../controllers/admin.js";
-import { Login, LoginSubmit, Logout } from "../controllers/login.js";
-
-// ADMIN PAGE
-router.get("/admin", Admin);
+import { LoginSubmit, Logout } from "../controllers/login.js";
 
 // ADD POST
 router.get("/add_post", AddPost);
@@ -33,19 +29,8 @@ router.get("/edit_post/:id", EditPost);
 // EDIT POST SUBMIT
 router.post("/edit_post/:id", EditPostSubmit);
 
-// HOME PAGE
-router.get("/", HomeController);
-
-// DETAIL PAGE
-router.get("/article/:id", Details);
-
 // ADD COMMENTS
 router.post("/add_comment/:id", AddComment);
-
-// --------------------------------------
-
-// AUTHENTIFICATION
-router.get("/login", Login);
 
 // AUTHENTIFICATION SUBMIT
 
