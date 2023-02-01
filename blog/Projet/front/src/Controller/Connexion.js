@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Connexion = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   //useDispatch permettra d'appeler une action du reducer afin d'écrire dans le styate global
   const dispatch = useDispatch();
@@ -39,10 +41,10 @@ const Connexion = () => {
         if (response.message) {
           dispatch({
             type: "CONNECT_USER",
-            id: response.id,
+            id: datas.email,
           });
           setMessage(response.message);
-          //redirection
+          navigate("/");
         } else {
           setMessage(response.message);
         }
