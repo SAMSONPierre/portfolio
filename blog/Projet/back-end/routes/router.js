@@ -3,7 +3,6 @@ import express from "express";
 const router = express.Router();
 
 //appel de mes controllers
-import HomeController from "../controllers/home.js";
 import { AddComment, Details } from "../controllers/details.js";
 import {
   AddPost,

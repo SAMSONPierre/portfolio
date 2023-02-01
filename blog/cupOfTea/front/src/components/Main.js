@@ -82,7 +82,7 @@ const Main = () => {
             <span>Notre nouveauté</span>
           </h2>
           <img src="img/product/product1.jpg" alt="Thé du Hammam" />
-          <h3>{liste[0].name}</h3>
+          {/* <h3>{liste[0].name}</h3> */}
           <p>{}</p>
           <section className="price">
             <p>
