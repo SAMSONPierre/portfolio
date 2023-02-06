@@ -14,7 +14,7 @@ const store = createStore(reducer);
 
 store.subscribe(() => {
   //à chaque changement du state, on enregistre sa nouvelle version dans le storage
-  sessionStorage.setItem("basket", JSON.stringify(store.getState()));
+  sessionStorage.setItem("session", JSON.stringify(store.getState()));
 });
 
 console.log("State init : ", store.getState());

@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 
 //connexion à la base de données
 mongoose.connect(
-  "mongodb+srv://db:TXtKdont2f5PjiNK@cluster0.qbgq6pq.mongodb.net/"
+  "mongodb+srv://Thomas:XhKnNiUrOCJWmocJ@cluster0.n7udm.mongodb.net/test"
 );
 
 mongoose.connection.on("error", () => {

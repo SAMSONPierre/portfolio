@@ -16,7 +16,7 @@ function App() {
           <Route path="/login" element={<Connexion />} />
         </Routes>
       </BrowserRouter>
-      <Footer/>
+      <Footer />
     </>
   );
 }
