@@ -10,7 +10,6 @@ export const LoginSubmit = (req, res) => {
         // Si le mot de passe est correct alors on créé la session et on redirige l'utilisateur vers le BO
         if (result) {
           req.session.isAdmin = true;
-          console.log(req.session.isAdmin);
           return res.status(200).json({ message: "OK" });
         }
         // Sinon on affiche un message
@@ -23,7 +22,6 @@ export const LoginSubmit = (req, res) => {
 };
 
 export const Logout = (req, res) => {
-  console.log(req.session);
   req.session.destroy();
   return res.status(200).json({ message: "Déconnecté" });
 };

@@ -4,8 +4,9 @@ import { useDispatch } from "react-redux";
 const Header = () => {
   const idUser = useSelector((state) => state);
   const dispatch = useDispatch();
-  console.log(idUser);
-  if (idUser === null || idUser === undefined) {
+
+  console.log(idUser.idUser);
+  if (idUser.idUser === null || idUser.idUser === undefined) {
     console.log("cest vrai");
   }
 
@@ -22,7 +23,7 @@ const Header = () => {
   };
   return (
     <header className="blog-header">
-      {idUser === null || idUser === undefined ? (
+      {idUser.idUser === null || idUser.idUser === undefined ? (
         <div>
           <h1>
             <a href="/">Pierre Samson</a>
