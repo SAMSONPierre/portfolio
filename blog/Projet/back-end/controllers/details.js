@@ -7,19 +7,3 @@ export const Details = (req, res) => {
 
   Article.findOne({ _id: id }, (error, post) => {});
 };
-
-export const AddComment = (req, res) => {
-  let id = req.params.id;
-
-  // création de l'objet commentaire qui sera ajouté aux tableaux des commentaires
-  let comment = {
-    pseudo: req.body.pseudo,
-    comment: req.body.content,
-    date: new Date(),
-  };
-
-  // Mise à jour de l'article avec le commentaire
-  Article.updateOne({ _id: id }, { $push: { comments: comment } }, () => {
-    res.redirect("/article/" + id);
-  });
-};

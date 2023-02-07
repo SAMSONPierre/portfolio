@@ -39,8 +39,7 @@ export const AddPostSubmit = (req, res) => {
     }
 
     article.save(() => {
-      // Une fois le post créé en BDD on redirige vers page admin
-      res.redirect("/admin");
+      return res.status(200).json({ message: "OK" });
     });
   });
 };

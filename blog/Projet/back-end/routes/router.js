@@ -3,7 +3,7 @@ import express from "express";
 const router = express.Router();
 
 //appel de mes controllers
-import { AddComment, Details } from "../controllers/details.js";
+import { Details } from "../controllers/details.js";
 import {
   AddPost,
   AddPostSubmit,
@@ -27,9 +27,6 @@ router.get("/edit_post/:id", EditPost);
 
 // EDIT POST SUBMIT
 router.post("/edit_post/:id", EditPostSubmit);
-
-// ADD COMMENTS
-router.post("/add_comment/:id", AddComment);
 
 // AUTHENTIFICATION SUBMIT
 

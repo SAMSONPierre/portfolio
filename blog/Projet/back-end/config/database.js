@@ -23,13 +23,6 @@ let ArticleSchema = mongoose.Schema({
   description: String,
   category: String,
   date: Date,
-  comments: [
-    {
-      pseudo: String,
-      comment: String,
-      date: Date,
-    },
-  ],
   images: [
     {
       src: String,
