@@ -6,6 +6,7 @@ import Connexion from "./Controller/Connexion";
 import Footer from "./Component/Footer";
 import Admin from "./Component/Admin";
 import NoAcces from "./Component/NoAcces";
+import AddProject from "./Controller/AddProject";
 import { useSelector } from "react-redux";
 
 function App() {
@@ -18,11 +19,15 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Connexion />} />
-
           {idUser.idUser === null || idUser.idUser === undefined ? (
             <Route path="/noacces" element={<NoAcces />} />
           ) : (
             <Route path="/admin" element={<Admin />} />
+          )}
+          {idUser.idUser === null || idUser.idUser === undefined ? (
+            <Route path="/noacces" element={<NoAcces />} />
+          ) : (
+            <Route path="/add_project" element={<AddProject />} />
           )}
         </Routes>
       </BrowserRouter>
