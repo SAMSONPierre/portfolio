@@ -5,11 +5,6 @@ const Header = () => {
   const idUser = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  console.log(idUser.idUser);
-  if (idUser.idUser === null || idUser.idUser === undefined) {
-    console.log("cest vrai");
-  }
-
   const submit = () => {
     let req = new Request("/logout", {
       method: "GET",
@@ -33,7 +28,7 @@ const Header = () => {
               <i className="fa fa-home"></i>Home
             </a>
             <a href="/login">
-              <i className="fa fa-cogs"></i> Se connecter
+              <i className="fa fa-cogs"></i> Admin
             </a>
           </nav>
         </div>
