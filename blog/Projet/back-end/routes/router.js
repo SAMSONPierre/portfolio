@@ -17,7 +17,7 @@ import { LoginSubmit, Logout } from "../controllers/login.js";
 // router.get("/add_post", AddPost);
 
 // ADD POST SUBMIT
-router.post("/add_post", AddPostSubmit);
+router.post("/addPost", AddPostSubmit);
 
 // DELETE POST
 router.get("/delete_post/:id", DeletePost);

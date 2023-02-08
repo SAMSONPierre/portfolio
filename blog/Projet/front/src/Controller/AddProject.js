@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const AddProject = () => {
   const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
 
   const handleChange = (e) => {
@@ -10,8 +10,8 @@ const AddProject = () => {
       case "title":
         setTitle(e.target.value);
         break;
-      case "content":
-        setContent(e.target.value);
+      case "description":
+        setDescription(e.target.value);
         break;
       case "category":
         setCategory(e.target.value);
@@ -24,11 +24,11 @@ const AddProject = () => {
   const submit = () => {
     let datas = {
       title: title,
-      content: content,
+      description: description,
       category: category,
     };
-    alert(datas.title + datas.content + datas.category);
-    let req = new Request("/add_post", {
+    alert(datas.title + datas.description + datas.category);
+    let req = new Request("/addPost", {
       method: "POST",
       body: JSON.stringify(datas),
       headers: {
@@ -41,8 +41,9 @@ const AddProject = () => {
       .then((response) => response.json())
       .then((response) => {
         setTitle("");
-        setContent("");
+        setDescription("");
         setCategory("");
+        alert(response);
       });
   };
 
@@ -54,8 +55,8 @@ const AddProject = () => {
         <input type="text" id="title" value={title} onChange={handleChange} />
         <label>Contenue du projet</label>
         <textarea
-          id="content"
-          value={content}
+          id="description"
+          value={description}
           onChange={handleChange}
         ></textarea>
         <input type="file" name="image" />

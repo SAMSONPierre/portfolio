@@ -11,6 +11,7 @@ export const AddPost = (req, res) => {
 };
 
 export const AddPostSubmit = async (req, res) => {
+  console.log("salut");
   // récupération des données du formulaire dans req.body
   // on utilise les name des inputs comme clés dans req.body
 
