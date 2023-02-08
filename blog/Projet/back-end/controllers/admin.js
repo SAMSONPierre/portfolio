@@ -10,38 +10,50 @@ export const AddPost = (req, res) => {
   });
 };
 
-export const AddPostSubmit = (req, res) => {
+export const AddPostSubmit = async (req, res) => {
   // récupération des données du formulaire dans req.body
   // on utilise les name des inputs comme clés dans req.body
 
-  const form = formidable();
+  // const form = formidable();
 
-  form.parse(req, (err, fields, files) => {
-    let oldPath = files.image.filepath;
-    let newPath = "public/img/" + files.image.originalFilename;
-    let pathBdd = "img/" + files.image.originalFilename;
+  // form.parse(req, (err, fields, files) => {
+  //   let oldPath = files.image.filepath;
+  //   let newPath = "public/img/" + files.image.originalFilename;
+  //   let pathBdd = "img/" + files.image.originalFilename;
 
-    let article = new Article();
-    article.title = fields.title;
-    article.description = fields.content;
-    article.category = fields.category;
-    article.date = new Date();
+  //   let article = new Article();
+  //   article.title = fields.title;
+  //   article.description = fields.content;
+  //   article.category = fields.category;
+  //   article.date = new Date();
 
-    if (files.image.originalFilename) {
-      article.images.push({
-        src: pathBdd,
-        alt: fields.title,
-      });
+  //   if (files.image.originalFilename) {
+  //     article.images.push({
+  //       src: pathBdd,
+  //       alt: fields.title,
+  //     });
 
-      fs.copyFile(oldPath, newPath, (err) => {
-        if (err) throw err;
-      });
+  //     fs.copyFile(oldPath, newPath, (err) => {
+  //       if (err) throw err;
+  //     });
+  //   }
+
+  //   article.save(() => {
+  //     return res.status(200).json({ message: "OK" });
+  //   });
+  //   return res.status(404).json({ message: res });
+  // });
+
+  let newArticle = req.body;
+  try {
+    let article = await Article.insertMany(newArticle);
+    if (!article) {
+      return res.status(404).json({ message: "No article found" });
     }
-
-    article.save(() => {
-      return res.status(200).json({ message: "OK" });
-    });
-  });
+    return res.status(200).json(newArticle);
+  } catch (err) {
+    return console.log(err + "salut");
+  }
 };
 
 export const DeletePost = (req, res) => {

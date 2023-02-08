@@ -5,7 +5,7 @@ const router = express.Router();
 //appel de mes controllers
 import { Details } from "../controllers/details.js";
 import {
-  AddPost,
+  // AddPost,
   AddPostSubmit,
   DeletePost,
   EditPost,
@@ -14,7 +14,7 @@ import {
 import { LoginSubmit, Logout } from "../controllers/login.js";
 
 // ADD POST
-router.get("/add_post", AddPost);
+// router.get("/add_post", AddPost);
 
 // ADD POST SUBMIT
 router.post("/add_post", AddPostSubmit);

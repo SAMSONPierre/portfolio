@@ -27,7 +27,7 @@ const AddProject = () => {
       content: content,
       category: category,
     };
-
+    alert(datas.title + datas.content + datas.category);
     let req = new Request("/add_post", {
       method: "POST",
       body: JSON.stringify(datas),
@@ -43,7 +43,6 @@ const AddProject = () => {
         setTitle("");
         setContent("");
         setCategory("");
-        console.log(response);
       });
   };
 
