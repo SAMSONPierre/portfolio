@@ -1,6 +1,5 @@
 import { Article } from "../config/database.js";
-import formidable from "formidable";
-import fs from "fs";
+import { v2 as cloudinary } from "cloudinary";
 
 export const AddPost = (req, res) => {
   // récupération des catégories depuis la bdd
@@ -10,40 +9,27 @@ export const AddPost = (req, res) => {
   });
 };
 
+export const GetPost = async (req, res) => {
+  try {
+    let project = await Article.find();
+    return res.status(200).json(project);
+  } catch (err) {
+    return console.log(err);
+  }
+};
+
 export const AddPostSubmit = async (req, res) => {
   console.log("salut");
-  // récupération des données du formulaire dans req.body
-  // on utilise les name des inputs comme clés dans req.body
+  cloudinary.config({
+    cloud_name: "dqkdjkmtc",
+    api_key: "922325493222328",
+    api_secret: "VMwzbmapipXnXc6XHxHNIi5A5sY",
+    secure: true,
+  });
 
-  // const form = formidable();
-
-  // form.parse(req, (err, fields, files) => {
-  //   let oldPath = files.image.filepath;
-  //   let newPath = "public/img/" + files.image.originalFilename;
-  //   let pathBdd = "img/" + files.image.originalFilename;
-
-  //   let article = new Article();
-  //   article.title = fields.title;
-  //   article.description = fields.content;
-  //   article.category = fields.category;
-  //   article.date = new Date();
-
-  //   if (files.image.originalFilename) {
-  //     article.images.push({
-  //       src: pathBdd,
-  //       alt: fields.title,
-  //     });
-
-  //     fs.copyFile(oldPath, newPath, (err) => {
-  //       if (err) throw err;
-  //     });
-  //   }
-
-  //   article.save(() => {
-  //     return res.status(200).json({ message: "OK" });
-  //   });
-  //   return res.status(404).json({ message: res });
-  // });
+  cloudinary.uploader
+    .upload(req.body.image)
+    .then((result) => console.log(result));
 
   let newArticle = req.body;
   try {
@@ -53,7 +39,7 @@ export const AddPostSubmit = async (req, res) => {
     }
     return res.status(200).json(newArticle);
   } catch (err) {
-    return console.log(err + "salut");
+    return console.log(err);
   }
 };
 

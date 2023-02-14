@@ -4,17 +4,23 @@ const AddProject = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
+  const [file, setFile] = useState({});
 
   const handleChange = (e) => {
     switch (e.target.id) {
       case "title":
         setTitle(e.target.value);
+        console.log(title);
         break;
       case "description":
         setDescription(e.target.value);
         break;
       case "category":
         setCategory(e.target.value);
+        break;
+      case "image":
+        setFile(e.target.value);
+        console.log(file);
         break;
       default:
         return "";
@@ -26,6 +32,7 @@ const AddProject = () => {
       title: title,
       description: description,
       category: category,
+      image: file,
     };
     alert(datas.title + datas.description + datas.category);
     let req = new Request("/addPost", {
@@ -59,7 +66,7 @@ const AddProject = () => {
           value={description}
           onChange={handleChange}
         ></textarea>
-        <input type="file" name="image" />
+        <input type="file" id="image" onChange={handleChange} />
         <label>Catégorie</label>
         <input
           type="text"
