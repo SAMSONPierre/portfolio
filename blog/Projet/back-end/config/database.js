@@ -22,13 +22,8 @@ let ArticleSchema = mongoose.Schema({
   title: String,
   description: String,
   category: String,
+  images: String,
   date: Date,
-  images: [
-    {
-      src: String,
-      alt: String,
-    },
-  ],
 });
 
 let Article = mongoose.model("Article", ArticleSchema);

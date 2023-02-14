@@ -19,25 +19,27 @@ export const GetPost = async (req, res) => {
 };
 
 export const AddPostSubmit = async (req, res) => {
-  console.log(req.body);
   cloudinary.config({
     cloud_name: "dqkdjkmtc",
     api_key: "922325493222328",
     api_secret: "VMwzbmapipXnXc6XHxHNIi5A5sY",
   });
 
-  cloudinary.uploader.upload(req.body.image).then(console.log("result"));
+  cloudinary.uploader.upload(req.body.image).then((response) => {
+    req.body.image = response.url;
+    console.log(req.body.image);
+    let newArticle = req.body;
+    console.log(req.body);
 
-  let newArticle = req.body;
-  try {
-    let article = await Article.insertMany(newArticle);
-    if (!article) {
-      return res.status(404).json({ message: "No article found" });
-    }
-    return res.status(200).json(newArticle);
-  } catch (err) {
-    return console.log(err);
-  }
+    let article = new Article();
+    article.title = req.body.title;
+    article.description = req.body.description;
+    article.category = req.body.category;
+    article.images = req.body.image;
+    article.date = new Date();
+
+    article.save();
+  });
 };
 
 export const DeletePost = (req, res) => {

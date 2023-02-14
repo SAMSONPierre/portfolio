@@ -45,7 +45,6 @@ const AddProject = () => {
     };
 
     alert(datas.title + datas.description + datas.category);
-    console.log(datas.image);
     let req = new Request("/addPost", {
       method: "POST",
       body: JSON.stringify(datas),
