@@ -4,7 +4,8 @@ const AddProject = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [file, setFile] = useState({});
+  const [file, setFile] = useState();
+  const [fileBDD, setFileBDD] = useState();
 
   const handleChange = (e) => {
     switch (e.target.id) {
@@ -19,7 +20,7 @@ const AddProject = () => {
         setCategory(e.target.value);
         break;
       case "image":
-        setFile(e.target.value);
+        setFile(e.target.files[0]);
         console.log(file);
         break;
       default:
@@ -27,14 +28,24 @@ const AddProject = () => {
     }
   };
 
-  const submit = () => {
+  const submit = (e) => {
+    e.preventDefault();
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      setFileBDD(reader.result);
+    };
+
     let datas = {
       title: title,
       description: description,
       category: category,
-      image: file,
+      image: fileBDD,
     };
+
     alert(datas.title + datas.description + datas.category);
+    console.log(datas.image);
     let req = new Request("/addPost", {
       method: "POST",
       body: JSON.stringify(datas),
@@ -50,6 +61,7 @@ const AddProject = () => {
         setTitle("");
         setDescription("");
         setCategory("");
+
         alert(response);
       });
   };

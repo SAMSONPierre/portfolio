@@ -19,17 +19,14 @@ export const GetPost = async (req, res) => {
 };
 
 export const AddPostSubmit = async (req, res) => {
-  console.log("salut");
+  console.log(req.body);
   cloudinary.config({
     cloud_name: "dqkdjkmtc",
     api_key: "922325493222328",
     api_secret: "VMwzbmapipXnXc6XHxHNIi5A5sY",
-    secure: true,
   });
 
-  cloudinary.uploader
-    .upload(req.body.image)
-    .then((result) => console.log(result));
+  cloudinary.uploader.upload(req.body.image).then(console.log("result"));
 
   let newArticle = req.body;
   try {
