@@ -8,6 +8,7 @@ import Admin from "./Component/Admin";
 import NoAcces from "./Component/NoAcces";
 import AddProject from "./Controller/AddProject";
 import { useSelector } from "react-redux";
+import ProjectCard from "./Component/ProjectCard";
 
 function App() {
   const idUser = useSelector((state) => state);
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Connexion />} />
+          <Route path="/project/:id" element={<ProjectCard />} />
           {idUser.idUser === null || idUser.idUser === undefined ? (
             <Route path="/noacces" element={<NoAcces />} />
           ) : (
