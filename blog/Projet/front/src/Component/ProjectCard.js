@@ -14,7 +14,11 @@ const ProjectCard = () => {
   }, []);
   return (
     <>
-      <p>salut</p>
+      <section className="article-detail">
+        <h1>{project.title}</h1>
+        <img src={project.images} width="50%" />
+        <p>{project.description}</p>
+      </section>
     </>
   );
 };
