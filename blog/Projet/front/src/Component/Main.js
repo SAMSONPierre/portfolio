@@ -22,7 +22,7 @@ const Main = () => {
       <ul className="home-list">
         {liste.map((item) => (
           <li key={item._id}>
-            <a href="/">{item.title}</a>
+            <a href={`/project/${item._id}`}>{item.title}</a>
             <img src={item.images} alt={item.title} width="20%" />
             <p>{item.description.substring(0, 30)}...</p>
           </li>

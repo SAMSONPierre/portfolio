@@ -1,12 +1,20 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 const ProjectCard = () => {
+  const [project, setProject] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    fetch(`/project/${id}`)
+      .then((response) => response.json())
+      .then((res) => {
+        console.log(res);
+        setProject(res);
+      });
+  }, []);
   return (
     <>
-      <main>
-        <h1>Vous n'avez pas accès à cette page</h1>
-        <a href="/">
-          <i className="fa fa-home"></i>Home
-        </a>
-      </main>
+      <p>salut</p>
     </>
   );
 };
