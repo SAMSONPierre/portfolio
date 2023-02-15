@@ -36,4 +36,8 @@ router.post("/login", LoginSubmit);
 
 router.get("/logout", Logout);
 
+// Get one
+
+router.get("/project/:id", Details);
+
 export default router;
