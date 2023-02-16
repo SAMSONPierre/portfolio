@@ -45,8 +45,8 @@ export const AddPostSubmit = async (req, res) => {
 export const DeletePost = (req, res) => {
   let id = req.params.id;
 
-  Article.deleteOne({ _id: id }, () => {
-    res.redirect("/admin");
+  Article.deleteOne({ _id: id }, (error, post) => {
+    return res.status(200).json(post);
   });
 };
 

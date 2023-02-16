@@ -20,7 +20,7 @@ router.get("/getPost", GetPost);
 router.post("/addPost", AddPostSubmit);
 
 // DELETE POST
-router.get("/delete_post/:id", DeletePost);
+router.delete("/deletePost/:id", DeletePost);
 
 // EDIT POST
 router.get("/edit_post/:id", EditPost);

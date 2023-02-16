@@ -11,6 +11,9 @@ const Admin = () => {
         setListe(res);
       });
   }, []);
+
+  const deleteOnClick = (e) => {};
+
   return (
     <main>
       <h1>Admin</h1>
@@ -38,7 +41,7 @@ const Admin = () => {
                 <a className="edit" href="/">
                   <i className="fa fa-pencil"></i>
                 </a>
-                <a className="remove" href="/">
+                <a className="remove" href="/" onClick={deleteOnClick}>
                   <i className="fa fa-remove"></i>
                 </a>
               </td>
