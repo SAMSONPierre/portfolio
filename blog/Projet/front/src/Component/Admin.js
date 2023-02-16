@@ -12,7 +12,19 @@ const Admin = () => {
       });
   }, []);
 
-  const deleteOnClick = (e) => {};
+  function deleteOnClick(id) {
+    let req = new Request(`/deletePost/${id}`, {
+      method: "DELETE",
+    });
+
+    console.log(id);
+    fetch(req)
+      .then((response) => response.json())
+      .then((res) => {
+        console.log(res);
+        window.location.reload();
+      });
+  }
 
   return (
     <main>
@@ -41,7 +53,14 @@ const Admin = () => {
                 <a className="edit" href="/">
                   <i className="fa fa-pencil"></i>
                 </a>
-                <a className="remove" href="/" onClick={deleteOnClick}>
+                <a
+                  className="remove"
+                  href=""
+                  onClick={(e) => {
+                    e.preventDefault();
+                    deleteOnClick(item._id);
+                  }}
+                >
                   <i className="fa fa-remove"></i>
                 </a>
               </td>
