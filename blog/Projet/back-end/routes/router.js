@@ -4,13 +4,7 @@ const router = express.Router();
 
 //appel de mes controllers
 import { Details } from "../controllers/details.js";
-import {
-  GetPost,
-  AddPostSubmit,
-  DeletePost,
-  EditPost,
-  EditPostSubmit,
-} from "../controllers/admin.js";
+import { GetPost, AddPostSubmit, DeletePost } from "../controllers/admin.js";
 import { LoginSubmit, Logout } from "../controllers/login.js";
 
 // GET POST
@@ -21,12 +15,6 @@ router.post("/addPost", AddPostSubmit);
 
 // DELETE POST
 router.delete("/deletePost/:id", DeletePost);
-
-// EDIT POST
-router.get("/edit_post/:id", EditPost);
-
-// EDIT POST SUBMIT
-router.post("/edit_post/:id", EditPostSubmit);
 
 // AUTHENTIFICATION SUBMIT
 

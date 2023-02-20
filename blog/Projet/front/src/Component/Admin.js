@@ -50,12 +50,9 @@ const Admin = () => {
               <td>{item.description.substring(0, 30)}...</td>
               <td>{item.category}</td>
               <td>
-                <a className="edit" href="/">
-                  <i className="fa fa-pencil"></i>
-                </a>
                 <a
                   className="remove"
-                  href=""
+                  href="/"
                   onClick={(e) => {
                     e.preventDefault();
                     deleteOnClick(item._id);

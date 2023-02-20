@@ -49,25 +49,3 @@ export const DeletePost = (req, res) => {
     return res.status(200).json(post);
   });
 };
-
-export const EditPost = (req, res) => {
-  let id = req.params.id;
-  Article.findOne({ _id: id }, (error, post) => {
-    res.render("layout", { template: "edit_post", post: post });
-  });
-};
-
-export const EditPostSubmit = (req, res) => {
-  let id = req.params.id;
-  Article.updateOne(
-    { _id: id },
-    {
-      title: req.body.title,
-      description: req.body.content,
-      category: req.body.category,
-    },
-    () => {
-      res.redirect("/admin");
-    }
-  );
-};
