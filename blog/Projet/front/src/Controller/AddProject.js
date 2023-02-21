@@ -60,8 +60,8 @@ const AddProject = () => {
         setTitle("");
         setDescription("");
         setCategory("");
-
-        alert(response);
+        console.log(response);
+        alert(datas.image);
       });
   };
 

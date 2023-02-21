@@ -5,7 +5,8 @@ const Header = () => {
   const idUser = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const submit = () => {
+  const submit = (e) => {
+    e.preventDefault();
     let req = new Request("/logout", {
       method: "GET",
     });
@@ -30,6 +31,9 @@ const Header = () => {
             <a href="/login">
               <i className="fa fa-cogs"></i> Admin
             </a>
+            <a href="https://github.com/ThomasThoams" target="_blank">
+              <i class="fa fa-github"></i> Github
+            </a>
           </nav>
         </div>
       ) : (
@@ -44,7 +48,7 @@ const Header = () => {
             <a href="/admin">
               <i className="fa fa-cogs"></i> Administration
             </a>
-            <a href="/logout" onClick={submit}>
+            <a href="/" onClick={submit}>
               <i className="fa fa-user"></i> Se déconnecter
             </a>
           </nav>
