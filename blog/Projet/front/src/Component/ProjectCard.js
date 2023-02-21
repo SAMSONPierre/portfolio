@@ -15,8 +15,13 @@ const ProjectCard = () => {
   return (
     <>
       <section className="article-detail">
-        <h1>{project.title}</h1>
-        <img src={project.images} width="50%" />
+        <h2>{project.title}</h2>
+        <nav>
+          <a href={project.github} target="_blank" rel="noreferrer">
+            Github du projet
+          </a>
+        </nav>
+        <img src={project.images} width="20%" />
         <p>{project.description}</p>
       </section>
     </>

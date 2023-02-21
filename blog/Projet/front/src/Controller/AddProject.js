@@ -4,6 +4,7 @@ const AddProject = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
+  const [git, setGit] = useState("");
   const [file, setFile] = useState();
   const [fileBDD, setFileBDD] = useState();
 
@@ -11,7 +12,6 @@ const AddProject = () => {
     switch (e.target.id) {
       case "title":
         setTitle(e.target.value);
-        console.log(title);
         break;
       case "description":
         setDescription(e.target.value);
@@ -21,7 +21,9 @@ const AddProject = () => {
         break;
       case "image":
         setFile(e.target.files[0]);
-        console.log(file);
+        break;
+      case "git":
+        setGit(e.target.value);
         break;
       default:
         return "";
@@ -41,10 +43,10 @@ const AddProject = () => {
       title: title,
       description: description,
       category: category,
+      git: git,
       image: fileBDD,
     };
 
-    alert(datas.title + datas.description + datas.category);
     let req = new Request("/addPost", {
       method: "POST",
       body: JSON.stringify(datas),
@@ -60,8 +62,9 @@ const AddProject = () => {
         setTitle("");
         setDescription("");
         setCategory("");
+        setGit("");
         console.log(response);
-        alert(datas.image);
+        console.log(datas);
       });
   };
 
@@ -85,6 +88,8 @@ const AddProject = () => {
           value={category}
           onChange={handleChange}
         />
+        <label>Github</label>
+        <input type="text" id="git" value={git} onChange={handleChange} />
         <input type="submit" name="Publier" onClick={submit} />
       </form>
     </main>

@@ -36,6 +36,7 @@ export const AddPostSubmit = async (req, res) => {
     project.description = req.body.description;
     project.category = req.body.category;
     project.images = req.body.image;
+    project.github = req.body.git;
     project.date = new Date();
 
     project.save();
