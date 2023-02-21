@@ -21,7 +21,7 @@ const ProjectCard = () => {
             Github du projet
           </a>
         </nav>
-        <img src={project.images} width="20%" />
+        <img src={project.images} alt="image du projet" />
         <p>{project.description}</p>
       </section>
     </>

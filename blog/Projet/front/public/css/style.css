@@ -10,8 +10,7 @@ body {
 
 /****** HEADER *******/
 
-.blog-header {
-	
+.blog-header {	
 	background-position: center;
 	background-size: cover;
 }
@@ -23,7 +22,6 @@ body {
 
 .blog-header h1{
 	text-align: center;
-
 }
 
 .blog-header h1 a {
@@ -61,7 +59,9 @@ main h1 {
 	text-align: center;
 	text-decoration: underline;
 }
-
+img{
+	width: 20%;
+}
 .back {
 	color: #0cd6b4;
 }
@@ -186,6 +186,7 @@ table td, table th {
 	background-color: #0cd6b4;
 	text-align: center;
 	padding: 25px;
+	align-items: flex-end;
 }
 
 

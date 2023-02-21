@@ -23,7 +23,7 @@ const Main = () => {
         {liste.map((item) => (
           <li key={item._id}>
             <a href={`/project/${item._id}`}>{item.title}</a>
-            <img src={item.images} alt={item.title} width="20%" />
+            <img src={item.images} alt={item.title} />
             <p>{item.description.substring(0, 30)}...</p>
           </li>
         ))}
