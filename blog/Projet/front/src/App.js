@@ -17,14 +17,21 @@ function App() {
 
       <BrowserRouter>
         <Routes>
+          {/* route home */}
           <Route path="/" element={<Main />} />
+          {/* route pour la connexion */}
           <Route path="/login" element={<Connexion />} />
+          {/* route pour avoir les informations projets */}
           <Route path="/project/:id" element={<ProjectCard />} />
+          {/* Si l'utilisateur est connecté redirige à la page de la liste des projets côté admin sinon
+          redirection au home */}
           {idUser.idUser === null || idUser.idUser === undefined ? (
             <Route path="/" element={<Main />} />
           ) : (
             <Route path="/admin" element={<Admin />} />
           )}
+          {/* Si l'utilisateur est connecté redirige à la page pour créer un projet côté admin sinon
+          redirection au home */}
           {idUser.idUser === null || idUser.idUser === undefined ? (
             <Route path="/" element={<Main />} />
           ) : (
