@@ -7,24 +7,24 @@ import { Details } from "../controllers/details.js";
 import { GetPost, AddPostSubmit, DeletePost } from "../controllers/admin.js";
 import { LoginSubmit, Logout } from "../controllers/login.js";
 
-// GET POST
+// Route pour avoir tout les projets
 router.get("/getPost", GetPost);
 
-// ADD POST SUBMIT
+// Route pour ajouter un projet
 router.post("/addPost", AddPostSubmit);
 
-// DELETE POST
+// Route pour supprimer un projet
 router.delete("/deletePost/:id", DeletePost);
 
-// AUTHENTIFICATION SUBMIT
+// Route du login
 
 router.post("/login", LoginSubmit);
 
-// DECONNEXION
+// Route pour la deconnexion
 
 router.get("/logout", Logout);
 
-// Get one
+// Route pour avoir les informations d'un projet
 
 router.get("/project/:id", Details);
 

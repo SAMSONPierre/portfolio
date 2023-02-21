@@ -32,7 +32,6 @@ let Project = mongoose.model("Project", ProjectSchema);
 let UserSchema = mongoose.Schema({
   email: String,
   password: String,
-  pseudo: String,
 });
 let User = mongoose.model("User", UserSchema);
 
@@ -44,7 +43,6 @@ let User = mongoose.model("User", UserSchema);
 //   let admin = new User({
 //     email: "admin@admin.fr",
 //     password: result,
-//     pseudo: "toto",
 //   });
 //   admin.save();
 // });
