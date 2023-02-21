@@ -9,75 +9,76 @@ body {
 }
 
 /****** HEADER *******/
-
-.blog-header {	
+.blog-header {
+	/* On met une image en background que l'on va placer au milieu sans la répéter */
+	background-image: url('../images/photoCV.JPG');
 	background-position: center;
-	background-size: cover;
-}
+	background-size: 10%;
+	background-repeat: no-repeat;
+	width: 100%;
 
+}
 .blog-header div {
+	/* On met un voile noir sur le header et on lui donne un padding */
 	background-color: rgba(0, 0, 0, 0.5);
-	padding: 100px 0 0;
+	padding: 8% 0 0;
 }
 
 .blog-header h1{
-	text-align: center;
+	/* On place le titre à gauche et on lui donne un margin gauche pour le décoller du bord de la page*/
+	text-align: left;
+	margin-left: 10%;
 }
 
-.blog-header h1 a {
+.blog-header h1{
+	/* On donne une couleur de texte au h1 et une taille de police */
 	color: white;
-	font-size: 1.5em;
+	font-size: 3em;
 }
 
 .blog-header  nav {
+	/* On place la nav en lui donnant un padding */
 	text-align: right;
 	padding: 50px;
 }
 
 .blog-header  nav a {
+	/* On donne une couleur et une taille de police aux liens */
 	color: white;
-	margin: 10px;
+	margin: 1em;
 }
-
-
 
 
 /****** MAIN  *******/
 main {
+	/* On donne un padding au main */
 	padding: 3% 10%
 }
 
 main p {
+	/* On aligne le texte à gauche, on lui donne une taille et des marges*/
 	text-align: left;
-
 	font-size: 1.2em;
 	margin:20px 0;
 }
 
 main h1 {
+	/* On donne un style au h1 avec une couleur, on lui donne un underline et le place au milieur*/
 	color: #9b9b9b;
 	text-align: center;
 	text-decoration: underline;
 }
 img{
+	/* on définit en global la taille des images */
 	width: 20%;
 }
-.back {
-	color: #0cd6b4;
-}
 
 
-.edit {
-	color: #0cd6b4;
-}
-
-.remove {
-	color: red;
-}
 /********** FORM ******/
 
 
 main form {
+	/* on déifint le style du formulaire */
 	width: 40%;
 	margin: auto;
 	text-align: center;
@@ -87,17 +88,20 @@ main form {
 }
 
 main form label{
+	/* On définit le styles des labels du formulaires */
 	color:#9b9b9b;
 	text-decoration: underline;
 }
 
 main form input {
+	/* On définit le styles des inputs du formulaires */
 	display: block;
 	margin: 25px auto;
 	width: 70%;
 }
 
 main form textarea {
+	/* On définit le styles du textarea du formulaires */
 	display: block;
 	margin: 25px auto;
 	width: 70%;
@@ -105,6 +109,7 @@ main form textarea {
 }
 
 main form input[type=submit] {
+	/* On définit le style du bouton pour envoyer le formulaire */
 	height: 40px;
 	width: 50%;
 	background-color: #0cd6b4;
@@ -112,24 +117,18 @@ main form input[type=submit] {
 	border-radius: 10px;
 }
 
-main form select {
-	display: block;
-	margin: 25px auto;
-	width: 70%;
-	text-align: center;
-}
-
-
 
 /********** HOME ****/
 
 .home-list li {
+	/* On définit le style de la liste des project dans le home */
 	text-align: left;
 	list-style: none;
 	margin: 30px 0;
 }
 
 .home-list li a {
+	/* On définit le style des liens de la liste des project dans le home */
 	display: block;
 	color: #0cd6b4;
 	font-size: 1.2em;
@@ -138,55 +137,68 @@ main form select {
 }
 
 .home-list li p {
+	/* On définit le style des textes de la liste des project dans le home */
 	text-align: left;
 }
 
-/********** ARTICLE ****/
+/********** PROJET ****/
 
-.article-detail {
+.projet-detail {
+	/* ON définit le style */
 	text-align: center;
 	margin-bottom: 100px
 }
 
-.article-detail h2 {
+.projet-detail h2 {
+	/* On déifinit le style du titre du projet */
 	color: #0cd6b4;
 	margin-bottom: 25px;
 }
 
-.article-detail nav{
+.projet-detail nav{
+	/* On ajoute un margin bottom à la nav pour la décoller de l'image */
 	margin-bottom: 25px;
 }
 
-.article-detail nav a{
+.projet-detail nav a{
+	/* On définit le style du lien dans le projet */
 	color: blue;
 	text-decoration: none;
 }
 
-.auth {
-	font-size: 0.8em;
-	margin-top: 20px;
-}
 
 /********** ADMIN ****/
 
 table {
+	/* On définit le style du tableau de la liste des projets côté admin */
 	width: 70%;
 	margin: 50px auto;
 }
 
 table td, table th {
+	/* On définit le style du tableau (bordure et paddin) */
 	border: 1px solid #0cd6b4;
 	border-spacing: 0;
 	padding: 15px 25px;
 }
 
+.back {
+	/* côté admin on définit la couleur du lien pour ajotuer un projet */
+	color: #0cd6b4;
+}
+
+.remove {
+	/* côté admin on définit la couleur de l'icone pour supprimer un projet */
+	color: red;
+}
+
 /********** FOOTER *************/
 
 .blog-footer {
+	/* On définit le style du footer */
 	background-color: #0cd6b4;
 	text-align: center;
 	padding: 25px;
-	align-items: flex-end;
 }
 
 

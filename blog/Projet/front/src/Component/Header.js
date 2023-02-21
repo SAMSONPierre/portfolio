@@ -21,9 +21,7 @@ const Header = () => {
     <header className="blog-header">
       {idUser.idUser === null || idUser.idUser === undefined ? (
         <div>
-          <h1>
-            <a href="/">Thomas Miramont</a>
-          </h1>
+          <h1>Thomas Miramont</h1>
           <nav>
             <a href="/">
               <i className="fa fa-home"></i>Home
@@ -36,22 +34,20 @@ const Header = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <i class="fa fa-github"></i> Github
+              <i className="fa fa-github"></i> Github
             </a>
             <a
               href="https://www.linkedin.com/in/thomas-miramont-6012b914a/"
               target="_blank"
               rel="noreferrer"
             >
-              <i class="fa fa-linkedin"></i> Linkedin
+              <i className="fa fa-linkedin"></i> Linkedin
             </a>
           </nav>
         </div>
       ) : (
         <div>
-          <h1>
-            <a href="/">Thomas Miramont</a>
-          </h1>
+          <h1>Thomas Miramont</h1>
           <nav>
             <a href="/">
               <i className="fa fa-home"></i>Home

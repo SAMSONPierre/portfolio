@@ -14,7 +14,7 @@ const ProjectCard = () => {
   }, []);
   return (
     <>
-      <section className="article-detail">
+      <section className="projet-detail">
         <h2>{project.title}</h2>
         <nav>
           <a href={project.github} target="_blank" rel="noreferrer">
