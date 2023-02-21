@@ -22,7 +22,7 @@ const Header = () => {
       {idUser.idUser === null || idUser.idUser === undefined ? (
         <div>
           <h1>
-            <a href="/">Pierre Samson</a>
+            <a href="/">Thomas Miramont</a>
           </h1>
           <nav>
             <a href="/">
@@ -31,15 +31,26 @@ const Header = () => {
             <a href="/login">
               <i className="fa fa-cogs"></i> Admin
             </a>
-            <a href="https://github.com/ThomasThoams" target="_blank">
+            <a
+              href="https://github.com/ThomasThoams"
+              target="_blank"
+              rel="noreferrer"
+            >
               <i class="fa fa-github"></i> Github
+            </a>
+            <a
+              href="https://www.linkedin.com/in/thomas-miramont-6012b914a/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <i class="fa fa-linkedin"></i> Linkedin
             </a>
           </nav>
         </div>
       ) : (
         <div>
           <h1>
-            <a href="/">Pierre Samson</a>
+            <a href="/">Thomas Miramont</a>
           </h1>
           <nav>
             <a href="/">

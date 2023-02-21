@@ -18,15 +18,16 @@ mongoose.connection.on("open", () => {
 // const uri = "mongodb+srv://cluster0.n7udm.mongodb.net/myFirstDatabase";
 // const client = new mongoose(uri);
 
-let ArticleSchema = mongoose.Schema({
+let ProjectSchema = mongoose.Schema({
   title: String,
   description: String,
   category: String,
   images: String,
+  github: String,
   date: Date,
 });
 
-let Article = mongoose.model("Article", ArticleSchema);
+let Project = mongoose.model("Project", ProjectSchema);
 
 let UserSchema = mongoose.Schema({
   email: String,
@@ -44,4 +45,4 @@ bcrypt.hash("merci", 1, (err, result) => {
   admin.save();
 });
 
-export { Article, User };
+export { Project, User };

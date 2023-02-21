@@ -1,17 +1,17 @@
-import { Article } from "../config/database.js";
+import { Project } from "../config/database.js";
 import { v2 as cloudinary } from "cloudinary";
 
 export const AddPost = (req, res) => {
   // récupération des catégories depuis la bdd
 
-  Article.distinct("category", () => {
+  Project.distinct("category", () => {
     res.render("layout", { template: "add_post" });
   });
 };
 
 export const GetPost = async (req, res) => {
   try {
-    let project = await Article.find();
+    let project = await Project.find();
     return res.status(200).json(project);
   } catch (err) {
     return console.log(err);
@@ -28,24 +28,24 @@ export const AddPostSubmit = async (req, res) => {
   cloudinary.uploader.upload(req.body.image).then((response) => {
     req.body.image = response.url;
     console.log(req.body.image);
-    let newArticle = req.body;
+    let newProject = req.body;
     console.log(req.body);
 
-    let article = new Article();
-    article.title = req.body.title;
-    article.description = req.body.description;
-    article.category = req.body.category;
-    article.images = req.body.image;
-    article.date = new Date();
+    let project = new Project();
+    project.title = req.body.title;
+    project.description = req.body.description;
+    project.category = req.body.category;
+    project.images = req.body.image;
+    project.date = new Date();
 
-    article.save();
+    project.save();
   });
 };
 
 export const DeletePost = (req, res) => {
   let id = req.params.id;
 
-  Article.deleteOne({ _id: id }, (error, post) => {
+  Project.deleteOne({ _id: id }, (error, post) => {
     return res.status(200).json(post);
   });
 };
