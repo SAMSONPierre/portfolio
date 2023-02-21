@@ -1,28 +1,33 @@
+// La liste des activités côté admin, on peut supprimer un projet
+
 import { useEffect, useState } from "react";
 
 const Admin = () => {
+  // useState de la liste des projets
   const [liste, setListe] = useState([]);
 
   useEffect(() => {
+    // On récupère la liste des projets avec la route getPost
     fetch("/getPost")
       .then((response) => response.json())
       .then((res) => {
-        console.log(res);
+        // Setter de la liste des projets
         setListe(res);
       });
   }, []);
 
+  // Au clique on envoie une requête à l'api pour supprimer le projet demandé de la BDD
   function deleteOnClick(id) {
+    // On configure la route
     let req = new Request(`/deletePost/${id}`, {
       method: "DELETE",
     });
-
-    console.log(id);
+    // On envoi la demande
     fetch(req)
       .then((response) => response.json())
       .then((res) => {
-        console.log(res);
         window.location.reload();
+        // On recharge la page pour mettre à jour la liste
       });
   }
 
@@ -42,14 +47,20 @@ const Admin = () => {
           </tr>
         </thead>
         <tbody>
+          {/* la liste des projets est récupéré dans un tableau donc on sépare les données */}
           {liste.map((item) => (
-            <tr>
+            <tr key={item._id}>
               <td>
+                {/* titre du projet */}
                 <a href={`/project/${item._id}`}>{item.title}</a>
               </td>
+              {/* description du projet */}
+              {/* On ne veut afficher que les 30 premiers caractère de la description */}
               <td>{item.description.substring(0, 30)}...</td>
+              {/* Catégorie du projet */}
               <td>{item.category}</td>
               <td>
+                {/* bouton pour supprimer un projet */}
                 <a
                   className="remove"
                   href="/"

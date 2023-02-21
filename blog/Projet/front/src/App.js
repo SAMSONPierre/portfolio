@@ -5,7 +5,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Connexion from "./Controller/Connexion";
 import Footer from "./Component/Footer";
 import Admin from "./Component/Admin";
-import NoAcces from "./Component/NoAcces";
 import AddProject from "./Controller/AddProject";
 import { useSelector } from "react-redux";
 import ProjectCard from "./Component/ProjectCard";
@@ -22,12 +21,12 @@ function App() {
           <Route path="/login" element={<Connexion />} />
           <Route path="/project/:id" element={<ProjectCard />} />
           {idUser.idUser === null || idUser.idUser === undefined ? (
-            <Route path="/noacces" element={<NoAcces />} />
+            <Route path="/" element={<Main />} />
           ) : (
             <Route path="/admin" element={<Admin />} />
           )}
           {idUser.idUser === null || idUser.idUser === undefined ? (
-            <Route path="/noacces" element={<NoAcces />} />
+            <Route path="/" element={<Main />} />
           ) : (
             <Route path="/add_project" element={<AddProject />} />
           )}
