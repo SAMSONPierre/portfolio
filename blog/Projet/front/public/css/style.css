@@ -19,7 +19,8 @@ body {
 
 }
 .blog-header div {
-	/* On met un voile noir sur le header et on lui donne un padding */
+	/* On met un voile noir sur le header, qui va mettre un voile noir aussi sur l'image en background
+	 et on lui donne un padding */
 	background-color: rgba(0, 0, 0, 0.5);
 	padding: 8% 0 0;
 }

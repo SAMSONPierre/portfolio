@@ -38,7 +38,8 @@ const Connexion = () => {
     fetch(req)
       .then((response) => response.json())
       .then((response) => {
-        if (response.message) {
+        console.log(response);
+        if (response.message === "OK") {
           dispatch({
             type: "CONNECT_USER",
             id: datas.email,

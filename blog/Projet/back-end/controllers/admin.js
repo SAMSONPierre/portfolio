@@ -1,14 +1,6 @@
 import { Project } from "../config/database.js";
 import { v2 as cloudinary } from "cloudinary";
 
-export const AddPost = (req, res) => {
-  // récupération des catégories depuis la bdd
-
-  Project.distinct("category", () => {
-    res.render("layout", { template: "add_post" });
-  });
-};
-
 export const GetPost = async (req, res) => {
   try {
     let project = await Project.find();
@@ -27,10 +19,6 @@ export const AddPostSubmit = async (req, res) => {
 
   cloudinary.uploader.upload(req.body.image).then((response) => {
     req.body.image = response.url;
-    console.log(req.body.image);
-    let newProject = req.body;
-    console.log(req.body);
-
     let project = new Project();
     project.title = req.body.title;
     project.description = req.body.description;
