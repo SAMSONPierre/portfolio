@@ -26,8 +26,13 @@ const Header = () => {
       {/* Si l'utilisateur n'est pas connecté (c'est un visiteur) il doit voir le lien 
       pour se connecter, le lien github et le lien linkedin*/}
       {idUser.idUser === null || idUser.idUser === undefined ? (
-        <div>
-          <h1>Thomas Miramont</h1>
+        <div className="blog-headerDiv">
+          <img
+            src="https://res.cloudinary.com/dqkdjkmtc/image/upload/v1676975944/photo_2_nzxoh0.jpg"
+            alt="Photo Thomas Miramont"
+            className="imgCV"
+          ></img>
+          <h1>Portfolio Thomas Miramont</h1>
           <nav>
             {/* Lien pour le homme/main*/}
             <a href="/">
@@ -61,7 +66,12 @@ const Header = () => {
         </div>
       ) : (
         // Si l'utilisateur est connecté il doit avoir accès au lien pour le côté admin
-        <div>
+        <div className="blog-headerDiv">
+          <img
+            src="https://res.cloudinary.com/dqkdjkmtc/image/upload/v1676975944/photo_2_nzxoh0.jpg"
+            alt="Photo Thomas Miramont"
+            className="imgCV"
+          ></img>
           <h1>Thomas Miramont</h1>
           <nav>
             {/* Lien pour le homme/main*/}

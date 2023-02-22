@@ -1,3 +1,4 @@
+/* css générale */
 * {
 	margin: 0;
 	padding: 0;
@@ -5,48 +6,57 @@
 }
 
 body {
+	/* On définit une police général et un couleur de fond */
 	font-family: 'Roboto', sans-serif;
+	background-color: #E9F8F9;
+
+}
+
+p{
+	/* On donne une taille de police générale au paragraphe */
+	font-size: 1vmax;
 }
 
 /****** HEADER *******/
-.blog-header {
-	/* On met une image en background que l'on va placer au milieu sans la répéter */
-	background-image: url('../images/photoCV.JPG');
-	background-position: center;
-	background-size: 10%;
-	background-repeat: no-repeat;
-	width: 100%;
 
+.blog-headerDiv{
+	/* On utilise flex sur le header pour placer chaque élément */
+	display: flex;
+	justify-content: space-around;
 }
 .blog-header div {
-	/* On met un voile noir sur le header, qui va mettre un voile noir aussi sur l'image en background
-	 et on lui donne un padding */
-	background-color: rgba(0, 0, 0, 0.5);
-	padding: 8% 0 0;
+	/* On met un voile sur le header */
+	background-color: #181823;
+}
+.imgCV{
+	/* On modifie la taille de l'image et ses bordures */
+	width: 10%;
+	border-radius: 20%;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+.blog-header h1{
+	/* On place le titre au centre*/
+	align-self: center;
 }
 
 .blog-header h1{
-	/* On place le titre à gauche et on lui donne un margin gauche pour le décoller du bord de la page*/
-	text-align: left;
-	margin-left: 10%;
-}
-
-.blog-header h1{
-	/* On donne une couleur de texte au h1 et une taille de police */
+	/* On donne une couleur de texte au h1 et une taille de police*/
 	color: white;
-	font-size: 3em;
+	font-size: 2vmax;
 }
 
 .blog-header  nav {
-	/* On place la nav en lui donnant un padding */
-	text-align: right;
-	padding: 50px;
+	/* On place la nav avec flex */
+	display: flex;
+	align-items: flex-end;
 }
 
 .blog-header  nav a {
-	/* On donne une couleur et une taille de police aux liens */
+	/* On donne une couleur un padding et une taille de police aux liens */
 	color: white;
 	margin: 1em;
+	font-size: 1vmax;
 }
 
 
@@ -59,15 +69,15 @@ main {
 main p {
 	/* On aligne le texte à gauche, on lui donne une taille et des marges*/
 	text-align: left;
-	font-size: 1.2em;
 	margin:20px 0;
 }
 
 main h1 {
-	/* On donne un style au h1 avec une couleur, on lui donne un underline et le place au milieur*/
+	/* On donne un style au h1 avec une couleur, une taille de police, on lui donne un underline et le place au milieur*/
 	color: #9b9b9b;
 	text-align: center;
 	text-decoration: underline;
+	font-size: 2vmax;
 }
 img{
 	/* on définit en global la taille des images */
@@ -113,7 +123,8 @@ main form input[type=submit] {
 	/* On définit le style du bouton pour envoyer le formulaire */
 	height: 40px;
 	width: 50%;
-	background-color: #0cd6b4;
+	background-color: #181823;
+	color: white;
 	border: none;
 	border-radius: 10px;
 }
@@ -131,7 +142,7 @@ main form input[type=submit] {
 .home-list li a {
 	/* On définit le style des liens de la liste des project dans le home */
 	display: block;
-	color: #0cd6b4;
+	color: #537FE7;
 	font-size: 1.2em;
 	margin-bottom: 10px;
 	text-align: left;
@@ -152,7 +163,7 @@ main form input[type=submit] {
 
 .projet-detail h2 {
 	/* On déifinit le style du titre du projet */
-	color: #0cd6b4;
+	color: #181823;
 	margin-bottom: 25px;
 }
 
@@ -163,7 +174,7 @@ main form input[type=submit] {
 
 .projet-detail nav a{
 	/* On définit le style du lien dans le projet */
-	color: blue;
+	color: #537FE7;
 	text-decoration: none;
 }
 
@@ -178,14 +189,14 @@ table {
 
 table td, table th {
 	/* On définit le style du tableau (bordure et paddin) */
-	border: 1px solid #0cd6b4;
+	border: 1px solid #181823;
 	border-spacing: 0;
 	padding: 15px 25px;
 }
 
 .back {
 	/* côté admin on définit la couleur du lien pour ajotuer un projet */
-	color: #0cd6b4;
+	color: #537FE7;
 }
 
 .remove {
@@ -197,9 +208,10 @@ table td, table th {
 
 .blog-footer {
 	/* On définit le style du footer */
-	background-color: #0cd6b4;
+	background-color: #181823;
 	text-align: center;
 	padding: 25px;
+	color: white;
 }
 
 

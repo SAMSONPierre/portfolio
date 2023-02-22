@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const AddProject = () => {
   // useState de l'input pour le titre
@@ -28,6 +28,8 @@ const AddProject = () => {
         break;
       case "image":
         setFile(e.target.files[0]);
+        console.log(e.target.files[0]);
+        console.log(file);
         break;
       case "git":
         setGit(e.target.value);
@@ -70,21 +72,10 @@ const AddProject = () => {
 
     // On envoie la requête
     // Pour l'instant il y a un problème sur l'envoi de la requête, il faut envoyer 2 fois la requête
-    // et il ne passe pas dans le 2ième then
-    fetch(req)
-      .then((response) => {
-        response.json();
-      })
-      .then((response) => {
-        setTitle("");
-        setDescription("");
-        setCategory("");
-        setGit("");
-        alert("salut");
-        console.log("salut");
-        console.log(response);
-        console.log(datas);
-      });
+    fetch(req).then((response) => {
+      console.log("salut");
+      response.json();
+    });
   };
 
   return (
