@@ -55,8 +55,8 @@ const Connexion = () => {
             type: "CONNECT_USER",
             id: datas.email,
           });
-          // on renvoie l'utilisateur au home
-          navigate("/");
+          // on envoie l'utilisateur sur les pages côtés admin
+          navigate("/admin");
         } else {
           // Si le mot de passe est incorrect on affiche un message
           setMessage(response.message);
