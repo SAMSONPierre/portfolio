@@ -16,6 +16,9 @@ p{
 	/* On donne une taille de police générale au paragraphe */
 	font-size: 1vmax;
 }
+a{
+	font-size: 15px;
+}
 
 /****** HEADER *******/
 
@@ -56,7 +59,6 @@ p{
 	/* On donne une couleur un padding et une taille de police aux liens */
 	color: white;
 	margin: 1em;
-	font-size: 1vmax;
 }
 
 
@@ -78,10 +80,6 @@ main h1 {
 	text-align: center;
 	text-decoration: underline;
 	font-size: 2vmax;
-}
-img{
-	/* on définit en global la taille des images */
-	width: 20%;
 }
 
 
@@ -131,7 +129,12 @@ main form input[type=submit] {
 
 
 /********** HOME ****/
-
+.home{
+	/* Avec flex on place le tout au milieu */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 .home-list li {
 	/* On définit le style de la liste des project dans le home */
 	text-align: left;
@@ -143,7 +146,6 @@ main form input[type=submit] {
 	/* On définit le style des liens de la liste des project dans le home */
 	display: block;
 	color: #537FE7;
-	font-size: 1.2em;
 	margin-bottom: 10px;
 	text-align: left;
 }
@@ -151,6 +153,10 @@ main form input[type=submit] {
 .home-list li p {
 	/* On définit le style des textes de la liste des project dans le home */
 	text-align: left;
+}
+.img-main{
+	/* On définit la taille de l'image des projets */
+	width: 50%;
 }
 
 /********** PROJET ****/
@@ -214,6 +220,36 @@ table td, table th {
 	color: white;
 }
 
+/* ---- RESPONSIVE ---- */
+@media screen and (max-width: 800px) {
+	/* css générale */
+	p{
+		font-size: 15px;
+	}
+	/************* HEADER *************/
+	/* On enlève l'image quand l'écran est trop petit */
+	.imgCV{
+		display: none;
+	}
+
+	/************* CONNEXION *************/
+	/* Pour afficher correctement les formulaires ont leur donnes un width de 100% (il est de 40% sinon) */
+	main form{
+		width: 100%;
+	}
+
+	/************* ADMIN LIST *************/
+	/* On enlève une colonne du tableau pour qu'on puisse afficher le tableaux correctement */
+	.description{
+		display: none;
+	}
+
+	/************* PROJET *************/
+	/* Sur un plus petit écran on redimensione la taille de l'image */
+	.img-project{
+		width: 50%;
+	}
+}
 
 
 

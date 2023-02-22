@@ -16,7 +16,7 @@ const Main = () => {
   }, []);
 
   return (
-    <main>
+    <main className="home">
       <h1>Home</h1>
       <p>
         Bienvenue sur mon portfolio ! Vous trouverez ici tous mes projets
@@ -29,7 +29,7 @@ const Main = () => {
             {/* titre du projet et lien pour avoir accès aux détails du projet */}
             <a href={`/project/${item._id}`}>{item.title}</a>
             {/* image du projet */}
-            <img src={item.images} alt={item.title} />
+            <img src={item.images} alt={item.title} className="img-main" />
             {/* description du projet, nous ne voulons afficher que les 30 premiers caractères de la description */}
             <p>{item.description.substring(0, 30)}...</p>
           </li>

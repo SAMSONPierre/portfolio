@@ -41,7 +41,7 @@ const Admin = () => {
         <thead>
           <tr>
             <th>Titre</th>
-            <th>Article</th>
+            <th className="description">Article</th>
             <th>Catégorie</th>
             <th>Action</th>
           </tr>
@@ -56,7 +56,9 @@ const Admin = () => {
               </td>
               {/* description du projet */}
               {/* On ne veut afficher que les 30 premiers caractère de la description */}
-              <td>{item.description.substring(0, 30)}...</td>
+              <td className="description">
+                {item.description.substring(0, 30)}...
+              </td>
               {/* Catégorie du projet */}
               <td>{item.category}</td>
               <td>

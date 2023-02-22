@@ -30,7 +30,11 @@ const ProjectCard = () => {
           </a>
         </nav>
         {/* image du projet */}
-        <img src={project.images} alt="image du projet" />
+        <img
+          src={project.images}
+          alt="image du projet"
+          className="img-project"
+        />
         {/* description du projet */}
         <p>{project.description}</p>
       </section>
