@@ -29,7 +29,7 @@ const Header = () => {
         <div className="blog-headerDiv">
           <img
             src="https://res.cloudinary.com/dqkdjkmtc/image/upload/v1676975944/photo_2_nzxoh0.jpg"
-            alt="Photo Thomas Miramont"
+            alt="Thomas Miramont"
             className="imgCV"
           ></img>
           <h1>Portfolio Thomas Miramont</h1>
@@ -69,7 +69,7 @@ const Header = () => {
         <div className="blog-headerDiv">
           <img
             src="https://res.cloudinary.com/dqkdjkmtc/image/upload/v1676975944/photo_2_nzxoh0.jpg"
-            alt="Photo Thomas Miramont"
+            alt="Thomas Miramont"
             className="imgCV"
           ></img>
           <h1>Thomas Miramont</h1>

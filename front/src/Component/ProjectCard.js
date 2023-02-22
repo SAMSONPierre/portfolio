@@ -17,6 +17,7 @@ const ProjectCard = () => {
         setProject(res);
       });
   }, []);
+
   return (
     <>
       <section className="projet-detail">
@@ -30,11 +31,7 @@ const ProjectCard = () => {
           </a>
         </nav>
         {/* image du projet */}
-        <img
-          src={project.images}
-          alt="image du projet"
-          className="img-project"
-        />
+        <img src={project.images} alt="projet" className="img-project" />
         {/* description du projet */}
         <p>{project.description}</p>
       </section>

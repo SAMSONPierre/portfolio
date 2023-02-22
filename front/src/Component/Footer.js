@@ -2,7 +2,7 @@
 const Footer = () => {
   return (
     <footer className="blog-footer">
-      <p>© 2023 Pierrot et Thomas</p>
+      <p>© 2023 Thomas Miramont</p>
     </footer>
   );
 };

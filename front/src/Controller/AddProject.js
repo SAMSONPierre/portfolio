@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const AddProject = () => {
   // useState de l'input pour le titre
