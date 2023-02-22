@@ -24,19 +24,24 @@ export const AddPostSubmit = async (req, res) => {
 
   // On envoie l'image sur cloudinary, on en récupère le lien de l'image que l'on va donner à la BDD
   // On récupêre dans le req.body les informations pour pouvoir les définir dans la BDD
-  cloudinary.uploader.upload(req.body.image).then((response) => {
-    let project = new Project();
-    req.body.image = response.url;
-    project.title = req.body.title;
-    project.description = req.body.description;
-    project.category = req.body.category;
-    project.images = req.body.image;
-    project.github = req.body.git;
-    project.date = new Date();
+  try {
+    cloudinary.uploader.upload(req.body.image).then((response) => {
+      let project = new Project();
+      req.body.image = response.url;
+      project.title = req.body.title;
+      project.description = req.body.description;
+      project.category = req.body.category;
+      project.images = req.body.image;
+      project.github = req.body.git;
+      project.date = new Date();
 
-    // On sauvegarde le nouveau projet dans la base de donnée
-    project.save();
-  });
+      // On sauvegarde le nouveau projet dans la base de donnée
+      project.save();
+      return res.status(200).json({ message: "OK" });
+    });
+  } catch (err) {
+    return console.log(err);
+  }
 };
 
 // Requête api pour supprimer un projet

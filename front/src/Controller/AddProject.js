@@ -73,8 +73,7 @@ const AddProject = () => {
     // On envoie la requête
     // Pour l'instant il y a un problème sur l'envoi de la requête, il faut envoyer 2 fois la requête
     fetch(req).then((response) => {
-      console.log("salut");
-      response.json();
+      console.log(response);
     });
   };
 

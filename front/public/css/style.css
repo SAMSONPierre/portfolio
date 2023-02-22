@@ -1,6 +1,6 @@
 /* css générale */
 * {
-	margin: 0;
+	margin: auto;
 	padding: 0;
 	box-sizing: border-box;
 }
@@ -9,7 +9,6 @@ body {
 	/* On définit une police général et un couleur de fond */
 	font-family: 'Roboto', sans-serif;
 	background-color: #E9F8F9;
-
 }
 
 p{
@@ -185,6 +184,12 @@ main form input[type=submit] {
 	text-decoration: none;
 }
 
+.projet-detail p{
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-top: 2%;
+}
+
 
 /********** ADMIN ****/
 
@@ -222,6 +227,7 @@ table td, table th {
 }
 
 /* ---- RESPONSIVE ---- */
+
 @media screen and (max-width: 800px) {
 	/* css générale */
 	p{
@@ -231,6 +237,12 @@ table td, table th {
 	/* On enlève l'image quand l'écran est trop petit */
 	.imgCV{
 		display: none;
+	}
+	.blog-headerDiv{
+		flex-direction: column;
+	}
+	.blog-header nav{
+		align-self: center;
 	}
 
 	/************* CONNEXION *************/
