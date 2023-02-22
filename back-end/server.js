@@ -23,13 +23,15 @@ app.use(
   })
 );
 
-// protection des pages admin
+// protection de l'api
+// Seulement une personne avec une session pourra accéder à ces routes
 app.use((req, res, next) => {
   let pathname = parseurl(req).pathname.split("/");
-  let protectedPath = ["admin", "addPost", "deletePost"];
+  let protectedPath = ["addPost", "deletePost"];
   // Si la session isAdmin n'existe pas et que l'URL fait des parties des URL protégées
   if (!req.session.isAdmin && protectedPath.includes(pathname[1])) {
-    res.redirect("/");
+    // L'accès lui est interdit
+    res.status(400).json({ message: "Accès interdit" });
   } else {
     next();
   }

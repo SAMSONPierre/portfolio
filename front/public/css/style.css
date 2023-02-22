@@ -12,10 +12,11 @@ body {
 }
 
 p{
-	/* On donne une taille de police générale au paragraphe */
+	/* On donne une taille de police générale aux paragraphes */
 	font-size: 1vmax;
 }
 a{
+	/* On donne une taille de police générale aux liens */
 	font-size: 20px;
 }
 
@@ -229,23 +230,28 @@ table td, table th {
 /* ---- RESPONSIVE ---- */
 
 @media screen and (max-width: 800px) {
+
 	/* css générale */
 	p{
 		font-size: 15px;
 	}
+
 	/************* HEADER *************/
-	/* On enlève l'image quand l'écran est trop petit */
+	/* On passe l'image en invisible quand l'écran est trop petit */
 	.imgCV{
 		display: none;
 	}
+	/* On passe l'affichge du header en colonne */
 	.blog-headerDiv{
 		flex-direction: column;
 	}
+	/* On place la nav au centre */
 	.blog-header nav{
 		align-self: center;
 	}
 
 	/************* CONNEXION *************/
+
 	/* Pour afficher correctement les formulaires ont leur donnes un width de 100% (il est de 40% sinon) */
 	main form{
 		width: 100%;
