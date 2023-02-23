@@ -1,5 +1,6 @@
 import { Project } from "../config/database.js";
 import { v2 as cloudinary } from "cloudinary";
+import env from "dotenv";
 
 // Requpête api pour obtenir la liste de tout les projets
 export const GetPost = async (req, res) => {
@@ -17,9 +18,9 @@ export const AddPostSubmit = async (req, res) => {
   // On configure le cloudinary, normalement bien évidemment les informations ne sont pas en clair comme
   // cela, ce sont des données protégé. J'y est mis les configurations d'un cloudinary poubelle
   cloudinary.config({
-    cloud_name: "dqkdjkmtc",
-    api_key: "922325493222328",
-    api_secret: "VMwzbmapipXnXc6XHxHNIi5A5sY",
+    cloud_name: env.cloud_name,
+    api_key: env.api_key,
+    api_secret: env.api_secret,
   });
 
   // On envoie l'image sur cloudinary, on en récupère le lien de l'image que l'on va donner à la BDD
