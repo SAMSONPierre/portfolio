@@ -14,6 +14,7 @@ body {
 }
 
 #root {
+	/* On définit un flex column avec une height au root pour que le footer s'affiche en bas de la page */
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
@@ -58,7 +59,7 @@ a{
 }
 
 .blog-header  nav {
-	/* On place la nav avec flex */
+	/* On place la nav avec flex et un wrap pour le responsive */
 	display: flex;
 	align-items: flex-end;
 	flex-wrap: wrap;

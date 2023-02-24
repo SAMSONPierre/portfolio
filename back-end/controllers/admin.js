@@ -1,6 +1,7 @@
 import { Project } from "../config/database.js";
 import { v2 as cloudinary } from "cloudinary";
-import env from "dotenv";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 // Requpête api pour obtenir la liste de tout les projets
 export const GetPost = async (req, res) => {

@@ -11,8 +11,6 @@ const AddProject = () => {
   const [git, setGit] = useState("");
   // useState de l'input pour l'image
   const [file, setFile] = useState();
-  // useState du fichier en base64 à envoyer pour cloudinary
-  // const [fileBDD, setFileBDD] = useState();
 
   const handleChange = (e) => {
     // Switch des setters des inputs
@@ -46,8 +44,6 @@ const AddProject = () => {
     // On passe en base 64 l'image choisit
     const reader = new FileReader();
     reader.onload = () => {
-      // On set le résultat
-      // setFileBDD(reader.result);
       let datas = {
         title: title,
         description: description,
