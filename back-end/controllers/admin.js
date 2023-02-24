@@ -18,14 +18,15 @@ export const AddPostSubmit = async (req, res) => {
   // On configure le cloudinary, normalement bien évidemment les informations ne sont pas en clair comme
   // cela, ce sont des données protégé. J'y est mis les configurations d'un cloudinary poubelle
   cloudinary.config({
-    cloud_name: env.cloud_name,
-    api_key: env.api_key,
-    api_secret: env.api_secret,
+    cloud_name: process.env.cloud_name,
+    api_key: process.env.api_key,
+    api_secret: process.env.api_secret,
   });
 
   // On envoie l'image sur cloudinary, on en récupère le lien de l'image que l'on va donner à la BDD
   // On récupêre dans le req.body les informations pour pouvoir les définir dans la BDD
   try {
+    console.log("up");
     cloudinary.uploader.upload(req.body.image).then((response) => {
       let project = new Project();
       req.body.image = response.url;
@@ -35,6 +36,7 @@ export const AddPostSubmit = async (req, res) => {
       project.images = req.body.image;
       project.github = req.body.git;
       project.date = new Date();
+      console.log("end");
 
       // On sauvegarde le nouveau projet dans la base de donnée
       project.save();

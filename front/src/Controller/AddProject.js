@@ -12,7 +12,7 @@ const AddProject = () => {
   // useState de l'input pour l'image
   const [file, setFile] = useState();
   // useState du fichier en base64 à envoyer pour cloudinary
-  const [fileBDD, setFileBDD] = useState();
+  // const [fileBDD, setFileBDD] = useState();
 
   const handleChange = (e) => {
     // Switch des setters des inputs
@@ -45,36 +45,35 @@ const AddProject = () => {
 
     // On passe en base 64 l'image choisit
     const reader = new FileReader();
-    reader.readAsDataURL(file);
     reader.onload = () => {
       // On set le résultat
-      setFileBDD(reader.result);
+      // setFileBDD(reader.result);
+      let datas = {
+        title: title,
+        description: description,
+        category: category,
+        git: git,
+        image: reader.result,
+      };
+
+      // On configure la requête
+      let req = new Request("/addPost", {
+        method: "POST",
+        body: JSON.stringify(datas),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+
+      // On envoie la requête
+      fetch(req).then((response) => {
+        console.log(response);
+      });
     };
+    reader.readAsDataURL(file);
 
     // On regroupe la data dans un tableau pour l'envoyer au back
-    let datas = {
-      title: title,
-      description: description,
-      category: category,
-      git: git,
-      image: fileBDD,
-    };
-
-    // On configure la requête
-    let req = new Request("/addPost", {
-      method: "POST",
-      body: JSON.stringify(datas),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    });
-
-    // On envoie la requête
-    // Pour l'instant il y a un problème sur l'envoi de la requête, il faut envoyer 2 fois la requête
-    fetch(req).then((response) => {
-      console.log(response);
-    });
   };
 
   return (
@@ -90,6 +89,7 @@ const AddProject = () => {
           id="description"
           value={description}
           onChange={handleChange}
+          rows="10"
         ></textarea>
         {/* input pour l'image */}
         <input type="file" id="image" onChange={handleChange} />

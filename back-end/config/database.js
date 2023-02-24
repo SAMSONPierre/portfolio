@@ -1,14 +1,14 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
-import dotenv from "dotenv";
+import * as dotenv from "dotenv";
 dotenv.config();
 
 // Replace the uri string with your connection string.
 //connexion à la base de données
 mongoose.connect(
-  "mongodb+srv://Thomas:XhKnNiUrOCJWmocJ@cluster0.n7udm.mongodb.net/Portfolio"
+  "mongodb+srv://Thomas:XhKnNiUrOCJWmocJ@cluster0.n7udm.mongodb.net/test"
 );
-console.log(process.env);
+console.log(process.env.MONGODB);
 
 // message d'erreur si la connexion à la base de données à échoué
 mongoose.connection.on("error", () => {

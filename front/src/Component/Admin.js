@@ -8,6 +8,7 @@ const Admin = () => {
 
   useEffect(() => {
     // On récupère la liste des projets avec la route getPost
+    console.log(liste);
     fetch("/getPost")
       .then((response) => response.json())
       .then((res) => {

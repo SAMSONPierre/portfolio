@@ -1,14 +1,22 @@
 /* css générale */
+/* 
 * {
 	margin: auto;
 	padding: 0;
 	box-sizing: border-box;
 }
+*/
 
 body {
 	/* On définit une police général et un couleur de fond */
 	font-family: 'Roboto', sans-serif;
 	background-color: #E9F8F9;
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
 }
 
 p{
@@ -53,6 +61,8 @@ a{
 	/* On place la nav avec flex */
 	display: flex;
 	align-items: flex-end;
+	flex-wrap: wrap;
+    justify-content: center;
 }
 
 .blog-header  nav a {
@@ -65,7 +75,8 @@ a{
 /****** MAIN  *******/
 main {
 	/* On donne un padding au main */
-	padding: 3% 10%
+	padding: 3% 10%;
+	flex: 1;
 }
 
 main p {
@@ -114,7 +125,8 @@ main form textarea {
 	display: block;
 	margin: 25px auto;
 	width: 70%;
-	height: 120px;
+	min-height: 120px;
+	resize: vertical;
 }
 
 main form input[type=submit] {
