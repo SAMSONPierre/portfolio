@@ -5,10 +5,7 @@ dotenv.config();
 
 // Replace the uri string with your connection string.
 //connexion à la base de données
-mongoose.connect(
-  "mongodb+srv://Thomas:XhKnNiUrOCJWmocJ@cluster0.n7udm.mongodb.net/test"
-);
-console.log(process.env.MONGODB);
+mongoose.connect(process.env.MONGODB);
 
 // message d'erreur si la connexion à la base de données à échoué
 mongoose.connection.on("error", () => {
